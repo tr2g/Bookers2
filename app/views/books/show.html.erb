@@ -1,16 +1,18 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-      <%= render 'users/list', user: @user %>
+    <%= render 'users/list', user: @user %>
     <%= render 'list', book: @book %>
 
-<div class="col-md-8 offset-md-1"><font-awesome-icon icon="fa-solid fa-user-gear" />
+<div class="col-md-8 offset-md-1">
 <h2>Book detail</h2>
 <table class="table table-hover table-inverse">
 
 
   <tbody>
   <tr>
-  <td><%= link_to image_tag @book.user.get_profile_image(100,100) %></td>
+  <td><%= link_to user_path(@user) do %>
+  <%= image_tag @book.user.get_profile_image(100,100) %>
+  <% end %></td>
   <td><%= link_to book_path(@book.id) do %>
     <%= @book.title %>
   <% end %></td>

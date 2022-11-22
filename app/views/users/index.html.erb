@@ -4,7 +4,7 @@
 <%= render 'books/list', book: @book %>
 
 
-<div class="col-md-8 offset-md-1"><font-awesome-icon icon="fa-solid fa-user-gear" />
+<div class="col-md-8 offset-md-1">
 <h2>Users</h2>
 <table class="table table-hover table-inverse">
   <thead>
@@ -18,8 +18,12 @@
   <tbody>
 <% @users.each do |user| %>
   <tr>
-  <td><%= link_to image_tag user.get_profile_image(100,100) %></td>
-  <td><%= link_to "Show", user_path(@user) %></td>
+  <td><%= link_to user_path(user.id) do %>
+  <% image_tag user.get_profile_image(100,100) %>
+  <% end %>
+  </td>
+
+  <td><%= link_to "Show", user_path(user.id) %></td>
   </tr>
 <% end %>
  </tbody>
