@@ -1,7 +1,5 @@
 <div class="container px-5 px-sm-0">
-  <div class="row">
-
-      <% if @book.errors.any? %>
+        <% if @book.errors.any? %>
       <%= @book.errors.count %> Errors !
       <ul>
         <% @book.errors.full_messages.each do |message| %>
@@ -9,7 +7,7 @@
         <% end %>
       </ul>
       <% end %>
-
+  <div class="row">
 
   <%= render 'users/list', user: @user %>
   <%= render 'list', book: @book %>
